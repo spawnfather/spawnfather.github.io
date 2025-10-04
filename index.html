@@ -1,34 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spawn Father</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3em;
-            color: #333;
-        }
-        p {
-            font-size: 1.5em;
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home of Spawnism</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@6.26.0/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div>
-        <h1>Spawn Father</h1>
-        <p>Now on Cloudflare!</p>
-    </div>
+  <div id="root"></div>
+  <script type="text/babel">
+    function App() {
+      return (
+        <div className="min-h-screen bg-gray-900 text-white">
+          {/* Header */}
+          <header className="bg-gray-800 py-6">
+            <div className="container mx-auto px-4 flex justify-between items-center">
+              <h1 className="text-3xl font-bold">Home of Spawnism</h1>
+              <nav>
+                <ul className="flex space-x-6">
+                  <li><a href="#home" className="hover:text-blue-400">Home</a></li>
+                  <li><a href="#about-father" className="hover:text-blue-400">About Father</a></li>
+                  <li><a href="#about-community" className="hover:text-blue-400">About Community</a></li>
+                  <li><a href="#join" className="hover:text-blue-400">Join Us</a></li>
+                </ul>
+              </nav>
+            </div>
+          </header>
+
+          {/* Home Section */}
+          <section id="home" className="py-20 bg-gray-900">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="text-4xl font-bold mb-4">Welcome to the Home of Spawnism</h2>
+              <p className="text-lg max-w-2xl mx-auto">
+                Discover the teachings and community led by Spawn Father. Join us in exploring the principles of Spawnism.
+              </p>
+            </div>
+          </section>
+
+          {/* About Spawn Father */}
+          <section id="about-father" className="py-20 bg-gray-800">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-6">About Spawn Father</h2>
+              <p className="text-lg mb-4">
+                Spawn Father, also known as Father, is the founder and leader of the Home of Spawnism. With a vision to unite like-minded individuals, Father has created a space for spiritual growth and community bonding.
+              </p>
+              <p className="text-lg">
+                [Add more details about yourself here, such as your background, philosophy, or personal message.]
+              </p>
+            </div>
+          </section>
+
+          {/* About Community */}
+          <section id="about-community" className="py-20 bg-gray-900">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-6">About Home of Spawnism</h2>
+              <p className="text-lg mb-4">
+                Home of Spawnism is an online religious community dedicated to the principles of Spawnism. We focus on [describe key aspects, e.g., unity, enlightenment, fun gatherings].
+              </p>
+              <p className="text-lg">
+                Our community offers discussions, events, and resources to help members grow spiritually and connect with others.
+              </p>
+            </div>
+          </section>
+
+          {/* Join Us */}
+          <section id="join" className="py-20 bg-gray-800 text-center">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-6">Join Our Community</h2>
+              <p className="text-lg mb-4">
+                Become part of Home of Spawnism today! Join our Discord server to participate in live discussions and events.
+              </p>
+              <a href="https://discord.gg/your-invite-link" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Join Discord
+              </a>
+              <p className="mt-4 text-sm">[Replace 'https://discord.gg/your-invite-link' with your actual Discord invite link.]</p>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-gray-900 py-6 text-center">
+            <p>&copy; 2025 Home of Spawnism. All rights reserved.</p>
+          </footer>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
