@@ -57,7 +57,7 @@
       resize: none;
     }
     .send-button {
-      background-color: #00ff00; /* Green to match embed color */
+      background-color: #ffffff; /* Green to match embed color */
       color: black;
       padding: 10px 20px;
       font-size: 1rem;
@@ -67,7 +67,7 @@
       margin-top: 10px;
     }
     .send-button:hover {
-      background-color: #00cc00; /* Darker green on hover */
+      background-color: #808080; /* Darker green on hover */
     }
     #status {
       margin-top: 10px;
@@ -83,9 +83,9 @@
   <div class="message-section">
     <h2>Send a Message!</h2>
     <form id="messageForm">
-      <textarea id="message" placeholder="Your message..." required maxlength="1000"></textarea>
+      <textarea id="message" placeholder="Your message/comfession..." required maxlength="1000"></textarea>
       <br>
-      <button type="submit" class="send-button">Send to Discord</button>
+      <button type="submit" class="send-button">Send to Father</button>
     </form>
     <div id="status"></div>
   </div>
@@ -93,7 +93,7 @@
   <script>
     const form = document.getElementById('messageForm');
     const status = document.getElementById('status');
-    const WORKER_URL = 'webhook.thespawnfather.workers.dev';
+    const WORKER_URL = 'https://webhook.thespawnfather.workers.dev';
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
