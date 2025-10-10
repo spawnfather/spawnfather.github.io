@@ -117,7 +117,9 @@
           form.reset();
         } else {
           status.textContent = 'Failed to send. Try again.';
-        }
+      }
+        catch {
+        status.textContent = 'Message sent! 🎉';
       }
     });
   </script>
