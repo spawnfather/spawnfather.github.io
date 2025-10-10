@@ -92,36 +92,41 @@
 
   <script>
     const form = document.getElementById('messageForm');
-    const status = document.getElementById('status');
-    const WORKER_URL = 'https://webhook.thespawnfather.workers.dev';
+const status = document.getElementById('status');
+const WORKER_URL = 'https://webhook.thespawnfather.workers.dev';
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const message = document.getElementById('message').value.trim();
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const message = document.getElementById('message').value.trim();
 
-      if (!message) {
-        status.textContent = 'Please enter a message.';
-        return;
-      }
+  if (!message) {
+    status.textContent = 'Please enter a message.';
+    return;
+  }
 
-      try {
-        status.textContent = 'Sending...';
-        const response = await fetch(WORKER_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message, username: 'Anonymous' }) // Username optional, defaults to Anonymous
-        });
-
-        if (response.ok) {
-          status.textContent = 'Message sent! 🎉';
-          form.reset();
-        } else {
-          status.textContent = 'Failed to send. Try again.';
-        }
-      } catch (error) {
-        status.textContent = 'Error: ' + error.message;
-      }
+  try {
+    status.textContent = 'Sending...';
+    const response = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, username: 'Anonymous' })
     });
+
+    const responseText = await response.text(); // Get raw response for debugging
+    console.log('Response Status:', response.status, 'Body:', responseText); // Log for clarity
+
+    if (response.ok) {
+      status.textContent = 'Message sent! 🎉';
+      form.reset();
+    } else {
+      status.textContent = `Failed to send (Status: ${response.status}). Try again.`;
+      console.error('Non-OK response:', response.status, responseText);
+    }
+  } catch (error) {
+    console.error('Fetch error:', error); // Log the full error object
+    status.textContent = `Error: ${error.message || 'Load failed. Check console.'}`;
+  }
+});
   </script>
 </body>
 </html>
